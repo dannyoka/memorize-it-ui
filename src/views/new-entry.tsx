@@ -10,6 +10,7 @@ export const NewEntry = () => {
   const navigate = useNavigate();
   const { sm, md } = useScreenSize();
 
+  // @ts-ignore
   const handleSubmit = async (event) => {
     event.preventDefault();
     const res = await api.createEntry({ name, content });
