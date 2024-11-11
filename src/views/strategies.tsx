@@ -5,18 +5,19 @@ import {
   Radio,
   RadioGroup,
 } from "@mui/material";
-import { Unstable_NumberInput as NumberInput } from "@mui/base";
-import { useState } from "react";
+import { NumberInput } from "../components/number-input";
 
 export const Strategies = ({
   strategy,
   setStrategy,
+  n,
+  setN,
 }: {
   strategy: string;
   setStrategy: (val: string) => void;
+  n: number | null;
+  setN: (val: number | null) => void;
 }) => {
-  const [n, setN] = useState(1);
-
   return (
     <FormControl>
       <FormLabel>Strategy</FormLabel>
@@ -30,7 +31,7 @@ export const Strategies = ({
       >
         <FormControlLabel label="Default" value="default" control={<Radio />} />
         <FormControlLabel
-          label="Every other word"
+          label="Every nth word"
           value="every_nth_word"
           control={<Radio />}
         />
@@ -40,11 +41,13 @@ export const Strategies = ({
           control={<Radio />}
         />
       </RadioGroup>
-      <FormControlLabel
-        onChange={(e) => setN(e.target.value)}
-        label="n"
-        value="n"
-        control={<NumberInput />}
+      <NumberInput
+        value={n}
+        onChange={(_, val) => {
+          setN(val);
+        }}
+        min={1}
+        max={10}
       />
     </FormControl>
   );

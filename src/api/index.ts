@@ -11,9 +11,9 @@ export const api = {
     const response = await entriesApi.get("/entries");
     return response.data;
   },
-  getEntry: async (id: string, strategy?: string) => {
+  getEntry: async (id: string, strategy?: string, n?: number) => {
     const url = strategy
-      ? `/entries/${id}?strategy=${strategy}`
+      ? `/entries/${id}?strategy=${strategy}&n=${n}`
       : `/entries/${id}`;
     const response = await entriesApi.get(url);
     return response.data;

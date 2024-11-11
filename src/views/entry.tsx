@@ -6,9 +6,10 @@ import { Strategies } from "./strategies";
 
 export const Entry = () => {
   const [strategy, setStrategy] = useState("default");
+  const [n, setN] = useState<number | null>(1);
   const params = useParams();
   const entryId = params.id;
-  const { entry } = useEntry(entryId, strategy);
+  const { entry } = useEntry(entryId, strategy, n);
   if (!entry) return <div>Unable to find entry</div>;
 
   return (
@@ -27,7 +28,12 @@ export const Entry = () => {
         <p>{entry.content}</p>
       </Grid>
       <Grid item>
-        <Strategies strategy={strategy} setStrategy={setStrategy} />
+        <Strategies
+          strategy={strategy}
+          setStrategy={setStrategy}
+          n={n}
+          setN={setN}
+        />
       </Grid>
     </Grid>
   );
