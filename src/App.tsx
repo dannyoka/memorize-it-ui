@@ -20,10 +20,26 @@ function App() {
                 className="link"
                 style={{ textDecoration: "none" }}
               >
-                <h2>Create a new entry</h2>
+                <h2
+                  style={{
+                    backgroundColor: "powderblue",
+                    borderRadius: "1rem",
+                    padding: "1rem",
+                  }}
+                >
+                  Create a new entry
+                </h2>
               </Link>
               <Link to="entries" className="link">
-                <h2>View entries</h2>
+                <h2
+                  style={{
+                    backgroundColor: "powderblue",
+                    borderRadius: "1rem",
+                    padding: "1rem",
+                  }}
+                >
+                  View entries
+                </h2>
               </Link>
             </Grid>
           </Grid>

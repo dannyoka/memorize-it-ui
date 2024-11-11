@@ -2,11 +2,13 @@ import { Button, FormGroup, Grid, TextField } from "@mui/material";
 import { useState } from "react";
 import { api } from "../api";
 import { useNavigate } from "react-router-dom";
+import { useScreenSize } from "../hooks/useScreenSize";
 
 export const NewEntry = () => {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const navigate = useNavigate();
+  const { sm, md } = useScreenSize();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -21,7 +23,7 @@ export const NewEntry = () => {
       container
       flexDirection="row"
       justifyContent="center"
-      style={{ minWidth: "20rem" }}
+      style={{ minWidth: sm ? "100%" : "50%" }}
     >
       <Grid container flexDirection="column" alignItems="center">
         <h1>New Entry</h1>
@@ -38,7 +40,7 @@ export const NewEntry = () => {
               }}
             />
             <TextField
-              style={{ margin: "1rem", minWidth: "40rem" }}
+              style={{ margin: "1rem", minWidth: md || sm ? "20rem" : "40rem" }}
               value={content}
               id="content"
               label="Content"
