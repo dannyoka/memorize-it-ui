@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = "https://memorize-it-api-4f185fe94534.herokuapp.com";
 
 const entriesApi = axios.create({
   baseURL: API_URL,
