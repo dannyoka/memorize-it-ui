@@ -2,7 +2,7 @@ import Grid from "@mui/material/Grid";
 import "./App.css";
 import { NewEntry } from "./views/new-entry";
 import { Entries } from "./views/entries";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Entry } from "./views/entry";
 
 function App() {
