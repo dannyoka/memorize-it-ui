@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://dannyoka.github.io/memorize-it-ui",
+  "homepage": "http://memorize-it.app",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
