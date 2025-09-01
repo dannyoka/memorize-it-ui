@@ -1,9 +1,8 @@
 import {
   FormControl,
-  FormControlLabel,
   FormLabel,
-  Radio,
-  RadioGroup,
+  ToggleButton,
+  ToggleButtonGroup,
 } from "@mui/material";
 import { NumberInput } from "../components/number-input";
 
@@ -21,34 +20,30 @@ export const Strategies = ({
   return (
     <FormControl>
       <FormLabel>Strategy</FormLabel>
-      <RadioGroup
-        row
+      <ToggleButtonGroup
         value={strategy}
         defaultValue="default"
-        onChange={(e) => {
-          setStrategy(e.target.value);
+        onChange={(_, newStrategy) => {
+          setStrategy(newStrategy);
         }}
+        exclusive
       >
-        <FormControlLabel label="Default" value="default" control={<Radio />} />
-        <FormControlLabel
-          label="Every nth word"
-          value="every_nth_word"
-          control={<Radio />}
+        <ToggleButton value="default">Default</ToggleButton>
+        <ToggleButton value="every_nth_word">Every nth word</ToggleButton>
+        <ToggleButton value="first_letter_of_every_word">
+          First letters only
+        </ToggleButton>
+      </ToggleButtonGroup>
+      {strategy === "every_nth_word" && (
+        <NumberInput
+          value={n}
+          onChange={(_, val) => {
+            setN(val);
+          }}
+          min={1}
+          max={10}
         />
-        <FormControlLabel
-          label="First letters only"
-          value="first_letter_of_every_word"
-          control={<Radio />}
-        />
-      </RadioGroup>
-      <NumberInput
-        value={n}
-        onChange={(_, val) => {
-          setN(val);
-        }}
-        min={1}
-        max={10}
-      />
+      )}
     </FormControl>
   );
 };

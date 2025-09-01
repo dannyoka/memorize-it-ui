@@ -14,7 +14,7 @@ function App() {
         </Grid>
         <Router>
           <Grid item xs={12}>
-            <Grid container direction="row" justifyContent="space-around">
+            <Grid container direction="row" justifyContent="space-evenly">
               <Link
                 to="new-entry"
                 className="link"
